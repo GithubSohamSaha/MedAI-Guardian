@@ -8,6 +8,11 @@ env/
 venv/
 *.egg-info/
 
+# Python virtual environment
+venv/
+env/
+.venv
+
 # Node / React
 node_modules/
 build/
