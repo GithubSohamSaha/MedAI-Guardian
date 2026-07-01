@@ -610,15 +610,15 @@ sequenceDiagram
 ```mermaid
 graph LR
     subgraph "Data Sources"
-        DS1[Firestore (Operational)]
-        DS2[BigQuery (Warehouse)]
+        DS1["Firestore (Operational)"]
+        DS2["BigQuery (Warehouse)"]
     end
     subgraph "Vertex AI Pipelines"
         A[Data Ingestion]
-        B[Data Validation (TFDV)]
+        B["Data Validation (TFDV)"]
         C[Preprocessing]
         D[Feature Engineering]
-        E[Model Training<br/>XGBoost/LSTM/RF]
+        E["Model Training<br/>XGBoost/LSTM/RF"]
         F[Model Evaluation]
         G[Model Registry]
     end
@@ -685,9 +685,9 @@ graph LR
 graph LR
     A[Firestore Change Stream] --> B[Cloud Function]
     B --> C[Cloud Pub/Sub]
-    C --> D[Dataflow (Apache Beam)]
+    C --> D["Dataflow (Apache Beam)"]
     D --> E[BigQuery]
-    F[Cloud Scheduler] --> G[Daily Batch Job (Cloud Run)]
+    F[Cloud Scheduler] --> G["Daily Batch Job (Cloud Run)"]
     G --> E
     H[IoT MQTT Broker] --> C
     E --> I[Vertex AI Training]
