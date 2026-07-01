@@ -1,0 +1,64 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+*.egg-info/
+
+# Node / React
+node_modules/
+build/
+.next/
+.env.local
+
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+*.iml
+*.lock
+
+# Firebase
+.firebase/
+*.firebaserc
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets & keys
+*.key
+*.pem
+secrets/
+credentials.json
+serviceAccountKey.json
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# ML
+*.h5
+*.pkl
+*.joblib
+mlruns/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment
+.env
+"@ | Out-File -FilePath .gitignore -Encoding utf8
