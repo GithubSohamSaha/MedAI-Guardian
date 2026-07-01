@@ -3,7 +3,7 @@
 **AI‑Powered Smart Health Monitoring & Supply Chain Platform for Primary Health Centres (PHCs)**
 
 [![Hackathon](https://img.shields.io/badge/Google%20Build%20with%20AI-Code%20for%20Communities-blue)](https://buildwithai.hack2skill.com/)
-[![Status](https://img.shields.io/badge/status-submitted-brightgreen)]()
+[![Status](https://img.shields.io/badge/status-pending-brightgreen)]()
 [![License](https://img.shields.io/badge/license-Apache%202.0-lightgrey)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
