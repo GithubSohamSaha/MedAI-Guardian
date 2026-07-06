@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["phc_id", "visit_date"],
+  "properties": {
+    "phc_id": {"type": "integer", "minimum": 1},
+    "patient_id": {"type": "string", "maxLength": 50},
+    "visit_date": {"type": "string", "format": "date-time"},
+    "symptoms": {"type": "array", "items": {"type": "string"}},
+    "diagnosis": {"type": "string", "maxLength": 255},
+    "wait_time_min": {"type": "integer", "minimum": 0},
+    "is_emergency": {"type": "boolean"}
+  }
+}

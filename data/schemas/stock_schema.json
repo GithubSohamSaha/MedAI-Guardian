@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["medicine_id", "phc_id", "quantity", "transaction_type"],
+  "properties": {
+    "medicine_id": {"type": "integer", "minimum": 1},
+    "phc_id": {"type": "integer", "minimum": 1},
+    "quantity": {"type": "integer", "minimum": -1000, "maximum": 10000},
+    "transaction_type": {"type": "string", "enum": ["addition", "consumption", "transfer"]},
+    "notes": {"type": "string", "maxLength": 255}
+  }
+}

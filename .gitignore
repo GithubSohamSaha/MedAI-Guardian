@@ -1,69 +1,92 @@
-@"
-# Python
-__pycache__/
-*.py[cod]
-*.so
-.Python
-env/
-venv/
-*.egg-info/
-
 # Python virtual environment
 venv/
+.venv/
 env/
-.venv
 
-# Node / React
+# Python cache & compiled files
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables & secrets
+.env
+*.pem
+*.key
+service-account.json
+credentials.json
+
+# IDE & editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node modules (React dashboard)
 node_modules/
-build/
-.next/
-.env.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Flutter / Dart
+# Flutter build & dependencies
 .dart_tool/
 .packages
 build/
 *.iml
-*.lock
+.gradle/
+android/app/build/
+ios/Pods/
 
 # Firebase
 .firebase/
-*.firebaserc
-
-# IDE
-.vscode/
-.idea/
-*.swp
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Secrets & keys
-*.key
-*.pem
-secrets/
-credentials.json
-serviceAccountKey.json
-
-# Docker
-.docker/
-docker-compose.override.yml
+.firebaserc
+firebase-debug.log
 
 # Terraform
 *.tfstate
 *.tfstate.backup
 .terraform/
 
-# ML
-*.h5
-*.pkl
-*.joblib
-mlruns/
+# Docker
+*.log
 
-# Jupyter
-.ipynb_checkpoints/
+# Test & coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
 
-# Environment
-.env
-"@ | Out-File -FilePath .gitignore -Encoding utf8
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# ML model files (optional – keep small models but ignore large ones)
+# *.h5
+# *.pb
+# *.pkl
+# /ml/models/
+
+# Other
+*.bak
+*.tmp

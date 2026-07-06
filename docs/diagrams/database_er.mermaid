@@ -1,0 +1,157 @@
+erDiagram
+    USERS {
+        int id PK
+        string username
+        string email
+        string password_hash
+        string role
+        string phone
+        string image_file
+        int phc_id FK
+        boolean is_active
+        datetime last_login
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PHCS {
+        int id PK
+        string name
+        string district
+        string block
+        string address
+        float latitude
+        float longitude
+        int health_score
+        boolean is_active
+        datetime created_at
+        datetime updated_at
+    }
+    
+    MEDICINES {
+        int id PK
+        string name
+        string code
+        string category
+        int current_stock
+        int reorder_level
+        int buffer_stock
+        string unit
+        float price_per_unit
+        int phc_id FK
+        datetime last_updated
+        datetime created_at
+        datetime updated_at
+    }
+    
+    STOCK_TRANSACTIONS {
+        int id PK
+        int medicine_id FK
+        int quantity_change
+        string transaction_type
+        datetime recorded_at
+        int user_id FK
+        string notes
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PATIENTS {
+        int id PK
+        string patient_id
+        string name
+        int age
+        string gender
+        string phone
+        string address
+        int phc_id FK
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PATIENT_VISITS {
+        int id PK
+        int patient_id FK
+        int phc_id FK
+        datetime visit_date
+        json symptoms
+        string diagnosis
+        int wait_time_min
+        boolean is_emergency
+        datetime created_at
+        datetime updated_at
+    }
+    
+    BEDS {
+        int id PK
+        string bed_type
+        int total
+        int occupied
+        int available
+        datetime last_updated
+        int phc_id FK
+        datetime created_at
+        datetime updated_at
+    }
+    
+    DOCTORS {
+        int id PK
+        string name
+        string specialization
+        string phone
+        string email
+        float attendance_rate
+        int phc_id FK
+        boolean is_active
+        datetime created_at
+        datetime updated_at
+    }
+    
+    DOCTOR_ATTENDANCE {
+        int id PK
+        int doctor_id FK
+        datetime date
+        boolean present
+        datetime check_in_time
+        datetime check_out_time
+        boolean predicted_absent
+        datetime created_at
+        datetime updated_at
+    }
+    
+    ALERTS {
+        int id PK
+        string alert_type
+        string severity
+        string title
+        string description
+        int phc_id FK
+        int user_id FK
+        boolean is_resolved
+        datetime resolved_at
+        datetime created_at
+        datetime updated_at
+    }
+    
+    PASSWORD_RESET_TOKENS {
+        int id PK
+        int user_id FK
+        string token_hash
+        datetime expires_at
+        datetime created_at
+        boolean is_used
+    }
+
+    USERS ||--o{ PHCS : "belongs to"
+    PHCS ||--o{ MEDICINES : "has"
+    MEDICINES ||--o{ STOCK_TRANSACTIONS : "has"
+    USERS ||--o{ STOCK_TRANSACTIONS : "performed by"
+    PHCS ||--o{ PATIENTS : "serves"
+    PATIENTS ||--o{ PATIENT_VISITS : "has"
+    PHCS ||--o{ PATIENT_VISITS : "records"
+    PHCS ||--o{ BEDS : "has"
+    PHCS ||--o{ DOCTORS : "employs"
+    DOCTORS ||--o{ DOCTOR_ATTENDANCE : "has"
+    PHCS ||--o{ ALERTS : "triggers"
+    USERS ||--o{ ALERTS : "acknowledges"
+    USERS ||--o{ PASSWORD_RESET_TOKENS : "requests"
