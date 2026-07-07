@@ -9,6 +9,12 @@
 
 ---
 
+## Authors
+- **Soham Saha**
+- **Chayan Maity**
+- **Arpayitri Bhattacharyya**
+- **Akash Roy**
+
 ## 🚀 Overview
 
 Primary Health Centres in India face critical gaps – medicine stock‑outs, unmanaged patient crowds, unpredictable doctor absenteeism, and no real‑time visibility for district officials. **MedAI Guardian** closes this gap with an AI‑driven, multilingual, offline‑first platform that combines:
