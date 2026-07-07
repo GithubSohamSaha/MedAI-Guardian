@@ -100,9 +100,14 @@ async def get_dashboard_summary(
             )
         )
         present = doc_result.scalar() or 0
+<<<<<<< HEAD
 
         # Total doctors in this PHC
         doc_total_result = await db.execute(
+=======
+        
+        doc_result = await db.execute(
+>>>>>>> 8e2315b (MedAI Feature Updation Commit)
             select(func.count()).where(Doctor.phc_id == phc.id)
         )
         total_docs = doc_total_result.scalar() or 1

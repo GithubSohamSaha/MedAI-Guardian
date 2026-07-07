@@ -116,7 +116,7 @@ async def get_patient_forecast(
     
     # Predict
     prediction = predict_footfall(
-        historical=[(row.date, row.count) for row in historical]
+        historical_data=[(row.date, row.count) for row in historical]
     )
     
     return PatientSurgePrediction(

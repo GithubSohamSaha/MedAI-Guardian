@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 _model = None
 _scaler = None

@@ -48,7 +48,8 @@ class ChangePasswordRequest(BaseModel):
 
 # Medicine Schemas
 class StockUpdate(BaseModel):
-    medicine_name: str
+    medicine_id: Optional[int] = None
+    medicine_name: Optional[str] = None
     quantity: int
     notes: Optional[str] = None
     transaction_type: Optional[str] = "manual"
