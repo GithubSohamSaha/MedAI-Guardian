@@ -9,7 +9,7 @@ from backend.api.models.user import User
 from backend.api.models.phc import PHC
 from backend.api.models.medicine import Medicine
 from backend.api.models.bed import Bed
-from backend.api.models.doctor import DoctorAttendance
+from backend.api.models.doctor import Doctor, DoctorAttendance
 from backend.api.models.alert import Alert
 from backend.api.schemas import (
     DashboardSummary, PHCHealthScore, DashboardTrends
@@ -87,21 +87,27 @@ async def get_dashboard_summary(
         
         # Doctor health
         today = datetime.now(timezone.utc).date()
+
+        # Count present doctors for this PHC today
         doc_result = await db.execute(
             select(func.count())
+            .select_from(DoctorAttendance)
+            .join(Doctor, DoctorAttendance.doctor_id == Doctor.id)
             .where(
-                DoctorAttendance.phc_id == phc.id,
+                Doctor.phc_id == phc.id,
                 func.date(DoctorAttendance.date) == today,
                 DoctorAttendance.present == True
             )
         )
         present = doc_result.scalar() or 0
-        
-        doc_result = await db.execute(
-            select(func.count()).where(DoctorAttendance.phc_id == phc.id)
+
+        # Total doctors in this PHC
+        doc_total_result = await db.execute(
+            select(func.count()).where(Doctor.phc_id == phc.id)
         )
-        total_docs = doc_result.scalar() or 1
-        doctor_health = present / max(total_docs, 1)
+        total_docs = doc_total_result.scalar() or 1
+
+        doctor_health = present / total_docs if total_docs > 0 else 0.5
         
         # Calculate score
         score = calculate_health_score(phc, medicine_health, bed_health, doctor_health)

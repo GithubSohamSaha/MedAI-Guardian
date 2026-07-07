@@ -40,19 +40,18 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["*"],  # Important: allows Authorization header
 )
 
 # Custom Middleware
 #app.add_middleware(RateLimitMiddleware)
 app.add_middleware(LoggingMiddleware)
-app.add_middleware(AuthMiddleware)
+#app.add_middleware(AuthMiddleware)
 
 # Static Files
 if os.path.exists("static"):
