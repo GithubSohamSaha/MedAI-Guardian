@@ -292,6 +292,308 @@ body {
   white-space: pre-wrap;
 }
 
+.assistant-live .assistant-answer {
+  min-height: 260px;
+}
+
+.chart-panel {
+  min-height: 330px;
+}
+
+.donut-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 152px minmax(180px, 1fr);
+  gap: 22px;
+  align-items: center;
+  min-width: 0;
+}
+
+.donut-chart {
+  width: 132px;
+  height: 132px;
+  overflow: visible;
+  transform: rotate(-90deg);
+}
+
+.donut-bg,
+.donut-segment {
+  fill: none;
+  stroke-width: 16;
+}
+
+.donut-bg {
+  stroke: var(--surface-strong);
+}
+
+.donut-segment {
+  transition: stroke-dasharray 240ms ease;
+}
+
+.donut-center {
+  position: absolute;
+  left: 66px;
+  top: 66px;
+  width: 86px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.donut-center strong {
+  font-size: 20px;
+}
+
+.chart-legend {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.chart-legend div {
+  display: grid;
+  grid-template-columns: 12px minmax(92px, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.chart-legend div > span:first-child {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.chart-legend .ant-typography,
+.legend-grid .ant-typography {
+  min-width: 0;
+  white-space: nowrap;
+  word-break: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.column-chart {
+  height: 190px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(34px, 1fr);
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+  padding: 12px 4px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.column-item {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 8px;
+  align-items: end;
+  text-align: center;
+}
+
+.column-item .ant-typography {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.column-track {
+  width: 100%;
+  min-height: 130px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.column-track span {
+  width: 100%;
+  min-height: 6px;
+  border-radius: 8px 8px 0 0;
+}
+
+.line-chart-wrap {
+  min-height: 170px;
+  padding: 10px 0 14px;
+}
+
+.line-chart {
+  width: 100%;
+  height: 170px;
+  background:
+    linear-gradient(to bottom, transparent 24%, var(--surface-strong) 24%, transparent 25%),
+    linear-gradient(to bottom, transparent 49%, var(--surface-strong) 49%, transparent 50%),
+    linear-gradient(to bottom, transparent 74%, var(--surface-strong) 74%, transparent 75%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.line-chart polyline {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.line-chart circle {
+  fill: var(--surface);
+  stroke: var(--blue);
+  stroke-width: 3;
+}
+
+.mini-donut {
+  margin-bottom: 14px;
+  padding: 12px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.mini-donut .donut-wrap {
+  grid-template-columns: 120px 1fr;
+}
+
+.mini-donut .donut-chart {
+  width: 112px;
+  height: 112px;
+}
+
+.mini-donut .donut-center {
+  left: 56px;
+  top: 56px;
+}
+
+.health-stack {
+  display: flex;
+  height: 18px;
+  overflow: hidden;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.health-stack span {
+  min-width: 2px;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.legend-grid div {
+  display: grid;
+  grid-template-columns: 12px minmax(72px, 1fr) auto;
+  gap: 4px;
+  align-items: center;
+  padding: 12px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.legend-grid div > span:first-child {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.viz-list,
+.chat-history,
+.prompt-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.viz-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.viz-row > div:first-child {
+  display: grid;
+  gap: 2px;
+}
+
+.viz-track {
+  height: 10px;
+  overflow: hidden;
+  background: var(--surface-strong);
+  border-radius: 999px;
+}
+
+.viz-track span {
+  display: block;
+  height: 100%;
+  background: var(--teal);
+  border-radius: 999px;
+}
+
+.viz-track span.warning {
+  background: var(--amber);
+}
+
+.viz-track span.danger {
+  background: var(--red);
+}
+
+.occupancy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.occupancy-card,
+.insight-summary,
+.chat-card {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.prompt-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.prompt-grid.compact {
+  grid-template-columns: 1fr;
+}
+
+.prompt-grid .ant-btn {
+  height: auto;
+  min-height: 38px;
+  white-space: normal;
+  text-align: left;
+}
+
+.chat-card {
+  white-space: pre-wrap;
+}
+
+.chat-history.compact {
+  max-height: 260px;
+  overflow: auto;
+}
+
 .action-list,
 .readiness-grid {
   display: grid;
@@ -383,6 +685,32 @@ body {
   }
 
   .assistant-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .viz-row {
+    grid-template-columns: 1fr;
+  }
+
+  .donut-wrap,
+  .mini-donut .donut-wrap {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .donut-center {
+    left: 50%;
+    top: 66px;
+  }
+
+  .mini-donut .donut-center {
+    left: 50%;
+    top: 56px;
+  }
+
+  .occupancy-grid,
+  .legend-grid,
+  .prompt-grid {
     grid-template-columns: 1fr;
   }
 

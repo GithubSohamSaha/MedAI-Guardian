@@ -58,6 +58,20 @@ async def seed():
             user.phc_id = user.phc_id or phc.id
             print("Demo user already exists")
 
+        now = datetime.now(timezone.utc)
+        existing_medicines = await session.execute(select(Medicine))
+        for medicine in existing_medicines.scalars().all():
+            if medicine.current_stock is None:
+                medicine.current_stock = 0
+            if medicine.reorder_level is None:
+                medicine.reorder_level = 50
+            if medicine.buffer_stock is None:
+                medicine.buffer_stock = 25
+            if not medicine.unit:
+                medicine.unit = "units"
+            if medicine.last_updated is None:
+                medicine.last_updated = now
+
         medicines = [
             ("Paracetamol 500mg", "Analgesic", 180, 120, 40, -18),
             ("Amoxicillin 250mg", "Antibiotic", 46, 80, 30, -9),
