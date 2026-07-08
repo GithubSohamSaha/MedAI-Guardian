@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000/api/v1';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'https://medai-guardian-1cob.onrender.com/api/v1';
+// used only for login (via fetch)
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8000/api/v1',
+  baseURL: process.env.REACT_APP_API_URL || 'https://medai-guardian-1cob.onrender.com/api/v1',
 });
+// used for everything else
 
 export const login = async (email, password) => {
   const formData = new FormData();
