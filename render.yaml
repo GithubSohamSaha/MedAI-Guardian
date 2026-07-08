@@ -1,0 +1,38 @@
+services:
+  # ============================
+  # 1. Backend (FastAPI)
+  # ============================
+  - type: web
+    name: medai-api
+    runtime: python
+    plan: free
+    buildCommand: pip install uv && uv sync --frozen
+    startCommand: uv run python -m uvicorn backend.api.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHONPATH
+        value: .
+      - key: DATABASE_URL
+        value: postgresql+psycopg://neondb_owner:npg_eJtLGNb75KYs@ep-dark-voice-ao3in90r-pooler.c-2.ap-southeast-1.aws.neon.tech/neondb?sslmode=require
+      - key: SECRET_KEY
+        value: 91efad83fbb7cc5c8ee32026b890cc2040a07aa38d2fb5233613b704b719b0a9
+      - key: GOOGLE_API_KEY
+        value: AQ.Ab8RN6L16v9x5YY10fP7xYqF6xY50DMuWeDTis2LIXJBV10JEg
+      - key: ENVIRONMENT
+        value: production
+      - key: FRONTEND_URL
+        value: https://medai-dashboard.onrender.com
+      - key: DASHBOARD_URL
+        value: https://medai-dashboard.onrender.com
+
+  # ============================
+  # 2. Frontend (React Dashboard)
+  # ============================
+  - type: web
+    name: medai-dashboard
+    runtime: static
+    plan: free
+    buildCommand: cd dashboard && npm install && npm run build
+    staticPublishPath: dashboard/build
+    pullRequestPreviewsEnabled: true
+    # If you want to serve the mobile worker page, place worker.html in dashboard/public/
+    # Then it will be available at https://medai-dashboard.onrender.com/worker.html
